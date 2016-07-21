@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Visual Camera Live!</title>
+	<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+</head>
+<body>
+<img src="" id="play">
+<div id="logger"></div>
+<script type="text/javascript">
+	var socket = io();
+	socket.on('stream',function(image){
+		var img = document.getElementById('play');
+		img.src = image;
+		$('#logger').text(image);
+	});
+</script>
+</body>
+</html>
